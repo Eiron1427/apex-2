@@ -8,13 +8,13 @@ import { ShieldKeyhole, ShieldUser } from "lucide-react";
 
 const initialState: LoginState = {};
 
-export const LoginForm = ({ redirectTo = "/dashboard" }: { redirectTo?: string }) => {
+export const LoginForm = () => {
     const [state, formAction, isPending] = useActionState(login, initialState);
 
     return (
         <Card className="rounded-md px-3 py-4">
             <CardBody>
-                <h4 className="text-xl flex item-center"><ShieldUser className="mr-1" />Please login to use the service.</h4>
+                <h4 className="text-xl flex items-center"><ShieldUser className="mr-1" />Please login to use the service.</h4>
                 { state.error ? (
                     <div role="alert" className="alert alert-error">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
@@ -24,15 +24,13 @@ export const LoginForm = ({ redirectTo = "/dashboard" }: { redirectTo?: string }
                     </div>
                 ) : null }
                 <form action={formAction}>
-                    <input type="hidden" value={redirectTo} />
-
                     <FormField label="Email:" htmlFor="email">
                         <input type="email" id="email" name="email" className="input w-full" />
                     </FormField>
                     <FormField label="Password:" htmlFor="password">
                         <input type="password" id="password" name="password" className="input w-full" />
                     </FormField>
-                    <button className="btn btn-primary w-full mt-3"><ShieldKeyhole />Login</button>
+                    <button type="submit" disabled={isPending} className="btn btn-primary w-full mt-3"><ShieldKeyhole />{isPending ? "Signing in…" : "Login"}</button>
                 </form>
             </CardBody>
         </Card>

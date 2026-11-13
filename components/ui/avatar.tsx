@@ -3,7 +3,7 @@ import { AvatarProps } from "@/types";
 const SIZES = {
     sm: 'h-8 w-8 text-xs',
     md: 'h-9 w-9 text-xs',
-    lg: 'h-20 w-20 text-3x'
+    lg: 'h-20 w-20 text-3xl'
 }
 
 const VARIANTS = {
@@ -14,7 +14,7 @@ const VARIANTS = {
 
 export const Avatar = ({initial, size = 'md', variant = 'bg-primary'} : AvatarProps) => {
     return (
-        <div className={`${size} ${variant} flex items-center justify-center rounded-full font-bold`}>
+        <div className={`${SIZES[size]} ${VARIANTS[variant]} flex items-center justify-center rounded-full font-bold`}>
             {initial}
         </div>
     );

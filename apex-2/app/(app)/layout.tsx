@@ -28,4 +28,3 @@ export default async function AppLayout({ children }: layoutProps) {
         </div>
     );
 }
-

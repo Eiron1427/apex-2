@@ -1,9 +1,6 @@
 "use client";
 
-import { LoginForm } from "@/components/auth/login-form";
-import { Avatar } from "@/components/ui/avatar";
 import { useTheme } from "./theme-store";
-import type { Theme } from "@/types";
 
 export const ThemeToggle = () => {
     const { theme, mounted, toggle } = useTheme();
